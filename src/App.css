@@ -1,3 +1,31 @@
+@font-face {
+  font-family: 'Abar VF';
+  src: url('../src/static/fonts/AbarMidNoEn-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Abar VF';
+  src: url('../src/static/fonts/AbarMidNoEn-SemiBold.woff2') format('woff2');
+  font-weight: 550;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Abar VF';
+  src: url('../src/static/fonts/AbarMidNoEn-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Abar VF';
+  src: url('../src/static/fonts/AbarMidNoEn-ExtraBold.woff2') format('woff2');
+  font-weight: 850;
+  font-style: normal;
+} 
+
 .App {
   text-align: center;
 }
@@ -36,3 +64,23 @@
     transform: rotate(360deg);
   }
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.MuiPaper-root-MuiAccordion-root:last-of-type {
+
+  border-bottom-right-radius: "16px";
+}
+
+.MuiPaper-root-MuiAccordion-root:first-of-type {
+  border-top-left-radius: 0;
+ border-top-right-radius: 0
+}
+

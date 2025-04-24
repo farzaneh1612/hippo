@@ -1,0 +1,156 @@
+
+.hero {
+    background: url('../../static/image/Back\ \(2\).png') no-repeat center top;
+    background-size: cover;
+    padding: 120px 20px;
+    text-align: center;
+   }
+  
+  .hero h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  /* .hero-buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  } */
+  
+  .hero-buttons-primary {
+    border-radius: 100px;
+    border: 1.5px solid #30959C;
+    background: #F5F5F5;    
+    display: flex;
+    height: 56px;
+    min-width: 136px;
+    padding: 6px 24px 4px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .hero-buttons-secondary {
+    background: #30959C;    
+    border-radius: 100px;  
+    display: flex;
+    height: 56px;
+    min-width: 136px;
+    padding: 6px 32px 4px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #E6E6E6;
+  }
+  
+  .hero-title{
+    color: var(--Gray-10, #F2F2F2);
+    text-align: center;
+
+    /* En/H1 */
+    font-family: "Abar VF";
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 850;
+    line-height: 64px; /* 114.286% */
+  }
+
+  .hero-paragraph{
+    color: var(--HPOtoken-100, #D4F3F1);
+    text-align: center;
+
+    /* En/Subtitle */
+    font-family: "Abar VF";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px; /* 150% */
+  }
+
+  .hero-buttons-title-primary {
+    color: #267B83;
+    font-family: "Sofia Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .hero-buttons-title-secondary {
+    color: #FFF;
+    font-family: "Sofia Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  /* Media Query for tablets and below */
+  
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: 60px 20px;
+      flex-direction: column;
+    }
+    hero-content{
+      display: flex;
+      max-width: 390px;
+      padding: 0px 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+  
+    .hero-title {
+      color: var(--Primary-50, #F4F9F7);
+      text-align: center;
+      font-family: "Abar VF";
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 850;
+      line-height: 56px; /* 155.556% */
+    }
+  
+    .hero-paragraph {
+      color: var(--Primary-100, #DAEDE6);
+      text-align: center;
+      font-family: "Abar VF";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 32px; /* 160% */
+    }
+    .hero-buttons-primary,
+    .hero-buttons-secondary {
+      width: 100%;
+      margin-bottom: 10px;
+      height: 48px;
+
+    }
+  
+    .hero-content > div {
+      flex-direction: column;
+      gap: 12px !important;
+    }
+  
+    .hero-buttons-title-primary,
+    .hero-buttons-title-secondary {
+      font-size: 16px;
+    }
+  }
+
+  

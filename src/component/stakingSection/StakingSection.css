@@ -1,0 +1,285 @@
+/* src/styles/StakingSection.css */
+.staking-section {
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    
+  }
+  
+  .staking-section-h2 {
+    margin-bottom: 20px;
+    color: var(--Gray-100, #E6E6E6);
+    text-align: center;
+    font-family: "Abar VF";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 850;
+    line-height: 50px; /* 125% */
+  }
+  
+  .staking-description {
+    margin: 0 auto 30px;
+    color: var(--Gray-100, #E6E6E6);
+    text-align: center;
+    /* En/Body - xl */
+    font-family: "Abar VF";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 140% */
+  }
+  
+  .staking-subtitle {
+    color: var(--Gray-100, #E6E6E6);
+    text-align: center;
+    
+    /* En/Body - xl */
+    font-family: "Abar VF";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 140% */
+    margin-bottom: 20px;
+  }
+  
+  .staking-table {
+    display:flex;
+    border-radius: 10px;
+    max-width: 640px;
+    margin: 0 auto 40px;
+    /* text-align: left; */
+    color: #fff;
+    padding: 24px 40px 32px 40px;
+    flex-direction: column;
+    border-radius: 16px;
+    background: #267B83;
+    gap: 8px;
+
+  }
+  
+  .staking-table-header,
+  .staking-table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 12px 0;
+    
+  }
+  
+  .staking-table-header {
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .staking-title-header{
+    color: var(--Gray-5, #F5F5F5);
+    font-family: "Abar VF";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+  }
+
+  .staking-title-row {
+    color: var(--Gray-10, #F2F2F2);
+
+    /* En/Body - md - reg */
+    font-family: "Abar VF";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .staking-table-row:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .staking-note {
+    max-width: 700px;
+    margin: 30px auto 10px;
+    color: var(--Gray-300, #ADADAD);
+    text-align: center;
+/* En/Body - md - reg */
+    font-family: "Abar VF";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;    
+  }
+  
+  .staking-call {
+    color: var(--Gray-100, #E6E6E6);
+    text-align: center;
+    
+    /* En/Body - xl */
+    font-family: "Abar VF";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 140% */
+    margin: 20px 0;
+  }
+  
+  .staking-button {
+    width: 200px;
+    height: 56px;
+    min-width: 136px;
+    padding: 8px 24px 2px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 100px;
+    border: 1.5px solid var(--HPOtoken-500, #30959C);
+    background: var(--Gray-5, #F5F5F5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-items: center;
+  }
+  
+  .staking-button:hover {
+    background-color: transparent;
+    color: #00d3a9;
+  }
+  
+  .staking-button-title{
+    color: var(--HPOtoken-600, #267B83);
+    font-family: "Abar VF";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  @media (max-width: 768px) {
+    .staking-table {
+      padding: 0;
+      gap: 16px;
+      background: none;
+    }
+  
+    .staking-button {
+      height: 56px;
+      min-width: 350px;
+      padding: 8px 24px 2px 24px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 100px;
+      border: 1.5px solid var(--HPOtoken-500, #30959C);
+      background: var(--Gray-5, #F5F5F5);
+    }
+    .staking-button-title{
+      color: var(--HPOtoken-600, #267B83);
+      font-family: "Abar VF";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      padding: 13px auto 7px;
+    }
+    .staking-table-header {
+      display: none; /* Hide table headers on mobile */
+    }
+    staking-section-h2{
+      color: var(--Primary-50, #F4F9F7);
+      text-align: center;
+      font-family: "Abar VF";
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 850;
+      line-height: 42px; /* 140% */
+      align-self: stretch;
+    }
+  
+    .staking-table-row {
+      display: flex;
+      padding: 24px 24px 20px 24px;
+      align-items: flex-start;
+      gap: 16px;
+      align-self: stretch;
+      border-radius: 16px;
+      background: var(--HPOtoken-600, #267B83);
+    }
+  
+    .staking-title-row {
+      font-size: 16px;
+      width: 100%;
+      color: var(--Gray-10, #F2F2F2);
+      font-family: "Abar VF";
+    }
+  
+    .staking-title-row::before {
+      content: attr(data-label);
+      display: block;
+      font-weight: 550;
+      font-size: 14px;
+      color: var(--Gray-5, #F5F5F5);
+      margin-bottom: 4px;
+    }
+
+    .staking-note{
+      color: var(--Gray-300, #ADADAD);
+      text-align: center;
+/* En/Body - sm */
+      font-family: "Abar VF";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-top: 12px;
+      margin: 12px auto 32px;
+    }
+  }
+  
+  .staking-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .staking-card {
+    /* background-color: #1b7f84;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between; */
+    display: flex;
+    padding: 24px 24px 20px 24px;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    border-radius: 16px;
+    background: var(--HPOtoken-600, #267B83);
+  }
+  
+  .staking-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+
+
+  .label {
+    color: var(--HPOtoken-200, #A9E6E5);
+    /* En/Label-sm */
+    font-family: "Abar VF";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;    
+    opacity: 0.8;
+    margin-bottom: 4px;
+  }
+  
+  .value {
+    color: var(--HPOtoken-50, #F2FBFB);
+    /* En/Body - md - thick */
+    font-family: "Abar VF";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+  }
+  

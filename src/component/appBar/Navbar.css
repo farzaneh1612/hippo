@@ -1,0 +1,61 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 700;
+  color: #34a6ab;
+}
+
+.navbar-center {
+  display: flex;
+  gap: 32px;
+}
+
+.navbar-center a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar-center a:hover {
+  color: #34a6ab;
+}
+
+.navbar-right {
+  display: flex;
+}
+
+.stake-button {
+  background-color: #34a6ab;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.stake-button:hover {
+  background-color: #2c8d91;
+}

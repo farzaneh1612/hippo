@@ -1,0 +1,382 @@
+.glance-section {
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+  }
+  
+  .glance-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .glance-icon {
+    width: 56px;
+    height: 56px;
+    padding-right: 24px;
+  }
+  
+  .glance-header h2 {
+    color: var(--Gray-100, #E6E6E6);
+    text-align: center;
+    /* En/H2 */
+    font-family: "Abar VF";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 850;
+  }
+  
+  .glance-table {
+    border-radius: 16px;
+    background: var(--HPOtoken-600, #267B83);
+    padding:40px;
+    margin: 48px auto;
+    max-width: 1100px;
+  }
+  
+  .glance-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    text-align: left;
+  }
+  
+  .glance-row.header div {
+    font-weight: 500;
+    color: #cfd8dc;
+  }
+  
+  .glance-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+  }
+  
+  .glance-row.data .primary {
+    color: var(--Gray-75, #EBEBEB);
+    font-family: "Abar VF";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+  }
+  
+  .glance-row.data .secondary {
+    color: var(--Gray-300, #ADADAD);
+    font-family: "Abar VF";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+    margin-top: 4px;
+  }
+  
+  .contract-section h3 {
+  
+    margin-bottom: 12px;
+    color: var(--Gray-400, #919191);
+    font-family: "Abar VF";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 133.333% */
+  }
+  
+  .contract-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .contract-card {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: background 0.2s;
+    max-width: 308px;
+    padding: 24px 32px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    background: var(--Gray-800, #2E2E2E);
+  }
+  
+  .contract-card:hover {
+    background-color: #3c3c3c;
+  }
+  
+  .contract-card img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .glance-external-icon {
+    margin-left: auto;
+    font-size: 16px;
+    color: #aaa;
+    position: absolute;
+    bottom: 26px;
+  }
+  
+  .glance-header-title {
+    color: var(--Gray-200, #C9C9C9);
+/* En/Body - l */
+    font-family: "Abar VF";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: 25px; /* 138.889% */
+  }
+
+  logo-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .glance-arrow-icon{
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+  }
+
+  .glance-section-logo-title {
+    color: var(--Gray-10, #F2F2F2);
+    font-family: "Abar VF";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 550;
+    padding-left: 12px;
+    line-height: 25px; /* 138.889% */
+    
+  }
+
+  .hpo-container {
+    padding: 20px;
+    font-family: sans-serif;
+    color: white;
+    background-color: #000;
+  }
+  
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  
+  .price-card {
+    background-color: #277b84;
+    border-radius: 12px;
+    padding: 16px;
+  }
+  
+  .price-header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon-circle img {
+    width: 48px;
+    height: 48px;  
+  }
+  
+  .current-price .label {
+    color: var(--HPOtoken-200, #A9E6E5);
+    font-family: "Abar VF";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+  }
+  
+  .current-price .value {
+    color: var(--HPOtoken-50, #F2FBFB);
+    font-family: "Abar VF";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 12px 0;
+  }
+  
+  .metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding:24px ;
+  }
+  
+  .metric .label {
+    color: var(--HPOtoken-200, #A9E6E5);
+    /* En/Label-sm */
+    font-family: "Abar VF";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+  }
+  
+  .metric .value {
+    color: var(--HPOtoken-50, #F2FBFB);
+    /* En/Body - md - thick */
+    font-family: "Abar VF";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+    text-align: left;
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    color: #aaa;
+    margin: 24px 0 12px;
+    font-weight: 500;
+  }
+  
+  .contracts {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .contract-card {
+    background: #2a2a2a;
+    border-radius: 12px;
+    padding: 16px;
+    flex: 1 1 40%;
+    min-width: 140px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    gap: 8px;
+  }
+  
+  .contract-card .icon-with-bg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contract-card img {
+    width: 22px;
+  }
+  
+  .contract-card:hover {
+    background: #3a3a3a;
+  }
+  
+  @media (max-width: 768px) {
+    .contract-section {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    
+    .contract-section h3 {
+      margin-bottom: 1rem;
+      color: var(--Gray-400, #919191);
+      /* En/Title-reg */
+      font-family: "Abar VF";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 32px; /* 133.333% */
+    }
+    
+    .contract-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    
+    .contract-card {
+      border-radius: 16px;
+      background: var(--Gray-800, #2E2E2E);
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      flex: 1 1 calc(50% - 12px); /* two cards per row with gap */
+      max-width: 180px;
+      box-sizing: border-box;
+      transition: background 0.3s ease;
+    }
+    
+    .contract-card:hover {
+      background-color: #3a3a3a;
+    }
+    
+    .contract-card div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .contract-card img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .logo-img {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .glance-section-logo-title {
+      color: var(--Gray-100, #E6E6E6);
+      text-align: right;
+      font-family: "Abar VF";
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 550;
+      line-height: 30px; /* 150% */
+      padding-top: 24px;
+    }
+    
+    .glance-arrow-icon {
+      width: 32px;
+      height: 32px;
+      margin-left: 37px;
+    }
+    
+    /* Optional: make layout tighter on very small screens */
+    @media (max-width: 360px) {
+      .contract-card {
+        flex: 1 1 100%;
+        max-width: none;
+      }
+    }
+    
+  }

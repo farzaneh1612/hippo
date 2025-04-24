@@ -1,0 +1,152 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 40px;
+    background-color: #1e1e1e;
+    color: white;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .navbar-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: 700;
+    color: #34a6ab;
+  }
+  
+  .navbar-center {
+    display: flex;
+    gap: 32px;
+  }
+  
+  .navbar-center a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .navbar-center a:hover {
+    color: #34a6ab;
+  }
+  
+  .navbar-right {
+    display: flex;
+  }
+  
+  .stake-button {
+    background-color: #34a6ab;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .stake-button:hover {
+    background-color: #2c8d91;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      display: flex;
+      max-width: 390px;
+      height: 44px;
+      padding: 18px 20px;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      background: var(--Gray-900, #1F1F1F);
+    }
+
+    .navbar-logo {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;    
+    }
+
+    .navbar-button-start {
+      border:0;
+      display: flex;
+      height: 40px;
+      min-width: 112px;
+      padding: 6px 16px 4px 16px;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      border-radius: 100px;
+      background: var(--HPOtoken-500, #30959C);
+    }
+
+    .navbar-button-start span {
+      color: var(--Gray-10, #F2F2F2);
+      font-family: "Abar VF";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    .navbar-menu {
+      display: flex;
+      width: 40px;
+      height: 40px;
+      padding: 6px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      border-radius: 40px;
+      border: 1px solid var(--Gray-700, #3F3F3F);
+    }
+  }
+  .drawer {
+    position: fixed;
+    top: 0;
+    width: 80%;
+    height: 20%;
+    background-color: #1e1e1e;
+    z-index: 100;
+    transition: left 0.3s ease;
+    border-radius: 24px;
+    background: var(--Gray-800, #2E2E2E);
+    right: -80%;
+    transition: right 0.3s ease;
+    margin-top: 64px;
+  }
+  
+  .drawer.open {
+    right: 0;
+  }
+  
+  /* Overlay for clicking outside */
+  .drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 90;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .drawer-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
