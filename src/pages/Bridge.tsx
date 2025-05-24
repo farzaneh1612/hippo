@@ -1,5 +1,5 @@
 import React from 'react'
-import AppBarDashboard from '../component/appBar/AppBarDashboard.tsx';
+import AppBarDashboard from '../component/appBar/AppBarDashboard.jsx';
 import { Box, styled } from '@mui/material';
 import image from "../static/image/BackDashboard.png";
 import BridgeForm from '../component/bridge/BridgeForm.tsx';

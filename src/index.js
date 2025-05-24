@@ -24,11 +24,14 @@ import App from "./App";
 import Dashboard from "./pages/Dashboard.tsx";
 import Stake from "./pages/Stake.tsx";
 import Bridge from "./pages/Bridge.tsx";
+import { NetworkProvider } from '../src/context/NetworkContext';
+
 
 
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
+  <NetworkProvider>
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
@@ -40,4 +43,5 @@ ReactDOM.createRoot(root).render(
 
     </Routes>
   </BrowserRouter>
+  </NetworkProvider>
 );

@@ -47,6 +47,7 @@ const StakingSection: React.FC = () => {
           <span className='staking-title-header'>Network</span>
           <span className='staking-title-header'>APY</span>
         </div>
+
         {stakingPlans.map((plan, index) => (
           <div key={index} className="staking-table-row">
             <span className='staking-title-row'>{plan.plan}</span>
@@ -54,6 +55,7 @@ const StakingSection: React.FC = () => {
             <span className='staking-title-row'>{plan.apy}</span>
           </div>
         ))}
+        
       </div>
 }
       <span className="staking-note">

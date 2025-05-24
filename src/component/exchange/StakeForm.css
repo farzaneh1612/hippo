@@ -98,12 +98,44 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+.warning-text {
+
+  color: var(--Gray-400, #919191);
+/* En/Body - l */
+font-family: "Abar VF";
+font-size: 18px;
+font-style: normal;
+font-weight: 550;
+line-height: 25px; /* 138.889% */
+}
+
+  .spinner-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @media (max-width: 768px) {
 
   .stake-form {
-    max-width: 350px;
-    padding: 32px 24px;
+    max-width: 100%;
     gap: 24px;
-    margin: auto 20px
+    margin: auto 20px;
+  
   }
 }

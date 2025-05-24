@@ -11,12 +11,12 @@ interface Exchange {
 }
 
 const exchanges: Exchange[] = [
-  { name: "PancakeSwap", type: "DEX", icon: require('../../static/image/logo/pancakeswap-cake-logo.png'), url: "#" },
-  { name: "SushiSwap", type: "DEX", icon:require('../../static/image/logo/sushiswap-sushi-logo.png'), url: "#" },
-  { name: "LBank", type: "CEX", icon: require('../../static/image/logo/LBank.png'), url: "#" },
+  { name: "PancakeSwap", type: "DEX", icon: require('../../static/image/logo/pancakeswap-cake-logo.png'), url: "https://pancakeswap.finance/swap?inputCurrency=0x55d398326f99059fF775485246999027B3197955&outputCurrency=0xa0ED3C520dC0632657AD2EaaF19E26C4fD431a84&exactAmount=&exactField=INPUT" },
+  { name: "SushiSwap", type: "DEX", icon:require('../../static/image/logo/sushiswap-sushi-logo.png'), url: "https://www.sushi.com/ethereum/swap?token0=0xdAC17F958D2ee523a2206206994597C13D831ec7&token1=0xa0ED3C520dC0632657AD2EaaF19E26C4fD431a84" },
+  { name: "LBank", type: "CEX", icon: require('../../static/image/logo/LBank.png'), url: "https://www.lbank.com/trade/hpo_usdt" },
   { name: "Coinstore", type: "CEX", icon: require('../../static/image/logo/Coinstore.png'), url: "#" },
-  { name: "BitMart", type: "CEX", icon: require('../../static/image/logo/BitMart.png'), url: "#" },
-  { name: "Bitrue", type: "CEX", icon: require('../../static/image/logo/Bitrue.png'), url: "#" },
+  { name: "BitMart", type: "CEX", icon: require('../../static/image/logo/BitMart.png'), url: "https://www.bitmart.com/trade/en-US?symbol=HPO_USDT" },
+  { name: "Bitrue", type: "CEX", icon: require('../../static/image/logo/Bitrue.png'), url: "https://www.bitrue.com/trade/hpo_usdt" },
 ];
 
 const NetworkSection: React.FC = () => {

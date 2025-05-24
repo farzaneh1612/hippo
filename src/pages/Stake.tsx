@@ -1,9 +1,9 @@
 import React from 'react'
-import AppBarDashboard from '../component/appBar/AppBarDashboard.tsx';
+import AppBarDashboard from '../component/appBar/AppBarDashboard.jsx';
 import { Box, styled } from '@mui/material';
 import NavBar from '../component/appBar/NavBar.tsx';
 import image from "../static/image/BackDashboard.png";
-import StakeForm from '../component/exchange/StakeForm.tsx';
+import StakeForm from '../component/exchange/StakeForm.jsx';
 import TabBarMobile from '../component/appBar/TabBarMobile.tsx';
 
 
@@ -20,7 +20,7 @@ export default function Stake() {
          <AppBarDashboard/>            
          {isMobile && <TabBarMobile/>}
 
-            <div style={{marginTop:'72px'}}/>          
+            {!isMobile ? <div style={{marginTop:'72px'}}/>:<div style={{marginTop:'56px'}}/> }        
 
             <StakeForm/>
             </BackgroudImageBox>

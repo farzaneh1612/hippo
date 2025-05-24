@@ -1,24 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import "./TabBarMobile.css";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 export default function TabBarMobile() {
-  const [activeTab, setActiveTab] = useState(0);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const tabs = [{title:'Dashboard', href:'/dashboard'}, {title:'Stake', href:'/stake'}, {title:'Bridge',href:'/bridge'}];
-  let navigate = useNavigate();
+  const tabs = [
+    { title: 'Dashboard', href: '/dashboard' },
+    { title: 'Stake', href: '/stake' },
+    { title: 'Bridge', href: '/bridge' }
+  ];
 
-  const navigatetoNavBar = (hrefLink:string, index:number) => {
-    setActiveTab(index)
-      navigate(hrefLink);
-    };
+  const activeTabIndex = tabs.findIndex(
+    (tab) => tab.href.toLowerCase() === location.pathname.toLowerCase()
+  );
+
+  const handleTabClick = (href: string) => {
+    navigate(href);
+  };
+
   return (
     <div className="tabbar">
-      {tabs.map((tab,index) => (
+      {tabs.map((tab, index) => (
         <button
           key={index}
-          className={`tabbar-button ${activeTab === index ? "active" : ""}`}
-          onClick={() => navigatetoNavBar(tab.href,index)}
+          className={`tabbar-button ${activeTabIndex === index ? "active" : ""}`}
+          onClick={() => handleTabClick(tab.href)}
         >
           <span>{tab.title}</span>
         </button>

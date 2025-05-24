@@ -3,9 +3,14 @@ import './SelectWithImage.css';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export type OptionWithImage = {
+  chainId:number;
   label: string;
   value: string;
   icon: string;
+  stakeContractAddress: string|undefined,
+  hpoContractAddress: string|undefined,
+  bridgeContractAddress: string|undefined,
+  bridgeContractHandler: string|undefined,
 };
 
 type SelectWithImageProps = {

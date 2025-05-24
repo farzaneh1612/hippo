@@ -66,7 +66,6 @@
   width: 100%;
   height: 56px;
   padding: 6px 24px;
-  background-color: #30959c;
   color: white;
   border: none;
   border-radius: 100px;
@@ -193,6 +192,64 @@
     padding-right: 8px;
   }
 
+  .spinner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.anotherAddress {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.anotherAddress-span {
+  color: var(--Gray-10, #F2F2F2);
+/* En/Body - md - thick */
+  font-family: "Abar VF";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 550;
+  line-height: normal;
+}
+
+.anotherAddress-input {
+  display: flex;
+  height: 36px;
+  padding: 10px 24px;
+  align-items: center;
+  gap: 12px;
+  align-self: stretch;
+  border-radius: 16px;
+  background: var(--Gray-700, #3F3F3F);
+  border: 0;
+  color: #F2F2F2;
+  opacity: 0.8;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  color:crimson;
+  margin-top: 4px;
+}
+
 @media (max-width: 768px) {
 
   .stake-form {
@@ -210,7 +267,6 @@
     font-style: normal;
     font-weight: 550;
     line-height: normal;
-    padding-top: 24px;
   }
 
   .note-box{

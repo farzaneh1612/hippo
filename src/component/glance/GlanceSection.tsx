@@ -103,7 +103,7 @@ const GlanceSection: React.FC = () => {
       <div className="contract-section">
         <h3>Smart Contract</h3>
         <div className="contract-buttons">
-          <a href="https://bscscan.com" className="contract-card" target="_blank" rel="noopener noreferrer">
+          <a href="https://bscscan.com/token/0xa0ed3c520dc0632657ad2eaaf19e26c4fd431a84" className="contract-card" target="_blank" rel="noopener noreferrer">
             <div style={{display:'flex'}}>
               <img src={require("../../static/image/logo/BscScan.png")} className="logo-img" alt="BSsonar new Icon" />
               {isMobile ? <img src={require('../../static/image/Arrow.png')} className="glance-arrow-icon" alt='arrow'/>
@@ -117,7 +117,7 @@ const GlanceSection: React.FC = () => {
             <img src={require('../../static/image/Arrow.png')} className="glance-arrow-icon" alt='arrow'/>
             }
             </a>
-          <a href="https://etherscan.io" className="contract-card" target="_blank" rel="noopener noreferrer">
+          <a href="https://etherscan.io/token/0xa0ed3c520dc0632657ad2eaaf19e26c4fd431a84" className="contract-card" target="_blank" rel="noopener noreferrer">
             <div style={{display:'flex'}}>
               <img src={require("../../static/image/logo/Ethereum.png")} className="logo-img" alt="Ether Icon" />
               {isMobile ? <img src={require('../../static/image/Arrow.png')} className="glance-arrow-icon" alt='arrow'/>

@@ -1,7 +1,9 @@
 import React from "react";
 import "./StakeCard.css";
+import { ConnectButton } from '../../logic/connect_button';
 
-export default function StakeCard({data}) {
+export default function StakeCard({data, isConnected}) {
+  
   return (
     <div className="stake-card">
       <div className="stake-card-header">
@@ -13,6 +15,7 @@ export default function StakeCard({data}) {
         <div className="stake-card-status"><span className={`status-badge ${data.status === 'Done' ? 'done' : 'in-progress'}`}>
           <span className="dot" /> {data.status}</span></div>
       </div>
+    {isConnected ===true ?
 
       <div className="stake-card-info">
         <div className="stake-card-info-item">
@@ -32,6 +35,15 @@ export default function StakeCard({data}) {
           <div className="stake-card-info-value">{data.releaseDate}</div>
         </div>
       </div>
+    :
+    <div className="emptyPage">
+      <span className="emptyTex">
+        To view information,<br /> you must first connect to your wallet.
+      </span>
+      <ConnectButton />
+      
+    </div>
+    }
     </div>
   );
 }
