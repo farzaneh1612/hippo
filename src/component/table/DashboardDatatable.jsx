@@ -7,6 +7,8 @@ import { useAppKitProvider, useAppKitAccount } from "@reown/appkit/react";
 import { BrowserProvider, ethers } from "ethers";
 import { useNetwork } from '../../context/NetworkContext';
 import { ConnectButton } from '../../logic/connect_button';
+import { toast } from "react-toastify";
+
 
 const isMobile = window.innerWidth <= 768;
 const itemsPerPage = 7;
@@ -24,6 +26,10 @@ export default function DashboardDatatable() {
   }, [isConnected, network]);
 
   async function getStakList() {
+    if (!isConnected) {
+              toast.error("Wallet not connected");
+              return;
+            }
     if (!isConnected || !network?.stakeContractAddress || !network?.stakeContractAbi) return;
 
     try {
@@ -60,6 +66,7 @@ export default function DashboardDatatable() {
       setData(formattedStakeList);
     } catch (error) {
       console.error("Failed to fetch stake list:", error);
+      toast.error(("Failed to fetch stake list:", error))
     }
   }
 

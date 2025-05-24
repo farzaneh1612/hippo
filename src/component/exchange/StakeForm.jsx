@@ -43,6 +43,10 @@ export default function StakeForm() {
   });
 
   async function getPlansInfo() {
+    if (!isConnected) {
+          toast.error("Wallet not connected");
+          return;
+        }
     try {
       const ethersProvider = new BrowserProvider(walletProvider);
       const signer = await ethersProvider.getSigner();
