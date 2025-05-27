@@ -29,7 +29,7 @@ createAppKit({
   metadata,
   projectId,
   enableWalletConnect: true,
-  defaultNetwork: bsc,
+  defaultNetwork: mainnet,
    includeWalletIds: [
     "664b505fea4c2117b8a55c054ef209664e0a68ddaafd7534df739f97a293fa1d",
     "c57ca95b47569778a828d19178114f4db188b89b763c899ba0be274e97267d96",

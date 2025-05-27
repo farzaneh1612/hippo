@@ -42,40 +42,52 @@ export default function StakeForm() {
     },
   });
 
-  async function getPlansInfo() {
+ async function getPlansInfo() {
     if (!isConnected) {
-          toast.error("Wallet not connected");
-          return;
-        }
-    try {
-      const ethersProvider = new BrowserProvider(walletProvider);
-      const signer = await ethersProvider.getSigner();
-
-      const contract = new ethers.Contract(
-        network.stakeContractAddress,
-        network.stakeContractAbi,
-        signer
-      );
-
-      const plans = await contract.getPlans();
-
-      const formattedPlans = plans.map((plan, index) => {
-        const releaseDuration = parseInt(plan[0]) / 3600 / 24;
-        const ratio = parseInt(plan[1]) / 100;
-        const minAmount = parseInt(plan[2]) / 1e18;
-
-        return {
-          label: `${ratio}% Profit - ${parseInt(releaseDuration / 30)} Month`,
-          value: { index, releaseDuration, ratio, minAmount },
-          icon: '',
-        };
+      toast.error("Wallet not connected");
+      return;
+    }
+    if (network.chainId === 1) {
+      const index = 0;
+      const releaseDuration = 30;
+      const ratio = "6%";
+      const minAmount = 3000;
+      setPlans({
+        label: `6% Profit - 1 Month`,
+        value: { index, releaseDuration, ratio, minAmount },
+        icon: "",
       });
+    } else {
+      try {
+        const ethersProvider = new BrowserProvider(walletProvider);
+        const signer = await ethersProvider.getSigner();
 
-      setPlans(formattedPlans);
-      if (formattedPlans.length > 0) setSelectedPlan(formattedPlans[0]);
-    } catch (error) {
-      toast.error("Failed to fetch plans info.");
-      console.error(error);
+        const contract = new ethers.Contract(
+          network.stakeContractAddress,
+          network.stakeContractAbi,
+          signer
+        );
+
+        const plans = await contract.getPlans();
+
+        const formattedPlans = plans.map((plan, index) => {
+          const releaseDuration = parseInt(plan[0]) / 3600 / 24;
+          const ratio = parseInt(plan[1]) / 100;
+          const minAmount = parseInt(plan[2]) / 1e18;
+
+          return {
+            label: `${ratio}% Profit - ${parseInt(releaseDuration / 30)} Month`,
+            value: { index, releaseDuration, ratio, minAmount },
+            icon: "",
+          };
+        });
+
+        setPlans(formattedPlans);
+        if (formattedPlans.length > 0) setSelectedPlan(formattedPlans[0]);
+      } catch (error) {
+        toast.error("Failed to fetch plans info.");
+        console.error(error);
+      }
     }
   }
 
