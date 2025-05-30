@@ -33,16 +33,15 @@ export default Dashboard;
 
 
 const BackgroudImageBox = styled(Box)(({ theme }) => ({
-    /* Full height */
-    height: 'auto',
+  minHeight: '100vh',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
+  backgroundImage: `url(${image})`,
+}));
 
-    /* Center and scale the image nicely */
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundImage:`url(${image})`
-    
 
-  }));
+
+
 
  

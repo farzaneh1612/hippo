@@ -51,6 +51,26 @@
     font-size: 16px;
     line-height: 1.6;
   }
+  .faq-toggle {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.faq-toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.faq-toggle-btn:hover {
+  color: #ccc; /* Slightly dim white on hover */
+}
+
   @media (max-width: 768px) {
 
 .faq-title{  

@@ -1,26 +1,26 @@
-import React from 'react'
-import  './AppBar.css'
+import React from "react";
+import "./AppBar.css";
 import { useNavigate, useLocation } from "react-router";
 
 //wallet conect
-import { createAppKit } from '@reown/appkit/react'
-import { EthersAdapter } from '@reown/appkit-adapter-ethers'
-import { bsc, mainnet } from '@reown/appkit/networks'
-import { ConnectButton } from '../../logic/connect_button'
+import { createAppKit } from "@reown/appkit/react";
+import { EthersAdapter } from "@reown/appkit-adapter-ethers";
+import { bsc, mainnet } from "@reown/appkit/networks";
+import { ConnectButton } from "../../logic/connect_button";
 
 // 1. Get projectId
-const projectId = '8136f750acdfad3c20903e479bfa004e';
+const projectId = "8136f750acdfad3c20903e479bfa004e";
 
 // 2. Set the networks
-const networks = [bsc, mainnet ];
+const networks = [bsc, mainnet];
 
 // 3. Create a metadata object - optional
 const metadata = {
-  name: 'test_alpa',
-  description: 'AppKit Example',
-  url: 'https://reown.com/appkit', // origin must match your domain & subdomain
-  icons: ['https://assets.reown.com/reown-profile-pic.png']
-}
+  name: "test_alpa",
+  description: "AppKit Example",
+  url: "https://reown.com/appkit", // origin must match your domain & subdomain
+  icons: ["https://assets.reown.com/reown-profile-pic.png"],
+};
 
 // 4. Create a AppKit instance
 createAppKit({
@@ -30,7 +30,7 @@ createAppKit({
   projectId,
   enableWalletConnect: true,
   defaultNetwork: mainnet,
-   includeWalletIds: [
+  includeWalletIds: [
     "664b505fea4c2117b8a55c054ef209664e0a68ddaafd7534df739f97a293fa1d",
     "c57ca95b47569778a828d19178114f4db188b89b763c899ba0be274e97267d96",
   ],
@@ -40,7 +40,7 @@ createAppKit({
     connectMethodsOrder: ["wallet"],
     // connectorTypeOrder
   },
-    allWallets: "HIDE",
+  allWallets: "HIDE",
   //   customWallets: [
   //     {
   //       id: "664b505fea4c2117b8a55c054ef209664e0a68ddaafd7534df739f97a293fa1d",
@@ -54,9 +54,13 @@ createAppKit({
   //       play_store: "https://play.google.com/store/apps/details?id=com.blockchaincommodities.hippo_wallet", // Optional
   //     },
   //   ],
-})
+});
 
-const pages = [{title:'Dashboard', href:'/dashboard'}, {title:'Stake', href:'/stake'}, {title:'Bridge',href:'/bridge'}];
+const pages = [
+  { title: "Dashboard", href: "/dashboard" },
+  { title: "Stake", href: "/stake" },
+  { title: "Bridge", href: "/bridge" },
+];
 
 export default function AppBarDashboard() {
   const navigate = useNavigate();
@@ -64,7 +68,7 @@ export default function AppBarDashboard() {
 
   const getActivePageIndex = () => {
     const currentPath = location.pathname.toLowerCase();
-    return pages.findIndex(page => page.href.toLowerCase() === currentPath);
+    return pages.findIndex((page) => page.href.toLowerCase() === currentPath);
   };
 
   const selectedPage = getActivePageIndex();
@@ -74,27 +78,28 @@ export default function AppBarDashboard() {
   };
 
   return (
-    <div className='container'>
-      <div className='logoBox'>
-        <img className='logoImage' src={require('../../static/image/logo/Logo.png')} alt="back" />
-        <span className='logoTypography'>HPOtoken</span>
+    <div className="container">
+      <div   style={{ cursor: 'pointer'}} className="logoBox" onClick={() => navigatetoNavBar("/")}>
+        <img
+          className="logoImage"
+          src={require("../../static/image/logo/Logo.png")}
+          alt="back"
+        />
+        <span className="logoTypography">HPOtoken</span>
       </div>
-      <div className='pageContainer'>
+      <div className="pageContainer">
         {pages.map((page, index) => (
           <button
             key={page.title}
             onClick={() => navigatetoNavBar(page.href)}
-            className={`button ${selectedPage === index ? 'active' : ''}`}
+            className={`button ${selectedPage === index ? "active" : ""}`}
           >
-            <span className='pageTypography'>
-              {page.title}
-            </span>
+            <span className="pageTypography">{page.title}</span>
           </button>
         ))}
       </div>
       {/* Connect to wallet */}
       <ConnectButton />
     </div>
-  )
+  );
 }
-

@@ -49,18 +49,22 @@ const faqData: FAQItem[] = [
   },
 ];
 
+
 const FAQSection: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0); // First one opened by default
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [showAll, setShowAll] = useState<boolean>(false);
 
   const toggleIndex = (index: number) => {
     setOpenIndex(prev => (prev === index ? null : index));
   };
 
+  const displayedFaqs = showAll ? faqData : faqData.slice(0, 3);
+
   return (
     <section className="faq-section">
       <h2 className="faq-title">FAQ</h2>
       <div className="faq-list">
-        {faqData.map((item, index) => (
+        {displayedFaqs.map((item, index) => (
           <div
             key={index}
             className={`faq-item ${openIndex === index ? "open" : ""}`}
@@ -79,6 +83,15 @@ const FAQSection: React.FC = () => {
           </div>
         ))}
       </div>
+
+      {/* Show More / Show Less Button */}
+      {faqData.length > 3 && (
+        <div className="faq-toggle">
+          <button className="faq-toggle-btn" onClick={() => setShowAll(prev => !prev)}>
+            {showAll ? "Show Less" : "Show More"}
+          </button>
+        </div>
+      )}
     </section>
   );
 };

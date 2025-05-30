@@ -31,14 +31,9 @@ export default function Stake() {
 }
 
 const BackgroudImageBox = styled(Box)(({ theme }) => ({
-    /* Full height */
-    height: height,
-
-    /* Center and scale the image nicely */
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundImage:`url(${image})`
-    
-
-  }));
+  minHeight: '100vh',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
+  backgroundImage: `url(${image})`,
+}));
