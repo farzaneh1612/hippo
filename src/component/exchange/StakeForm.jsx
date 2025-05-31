@@ -52,11 +52,11 @@ export default function StakeForm() {
       const releaseDuration = 30;
       const ratio = "6%";
       const minAmount = 3000;
-      setPlans({
+      setPlans([{
         label: `6% Profit - 1 Month`,
         value: { index, releaseDuration, ratio, minAmount },
         icon: "",
-      });
+      }]);
     } else {
       try {
         const ethersProvider = new BrowserProvider(walletProvider);
