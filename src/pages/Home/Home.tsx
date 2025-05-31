@@ -16,27 +16,27 @@ import "./Home.css";
 import ResponsiveAppBar from "../../component/appBar/ResponsiveAppBar.tsx";
 
 const Home = () => {
-  const assetsRef = useRef<HTMLDivElement>(null);
+  const buyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY === 0) {
-        // Clean the URL when at top
         window.history.replaceState(null, "", window.location.pathname);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToBuy = () => {
+    buyRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <div className="Home">
       <ResponsiveAppBar />
-      <HeroSection />
+      <HeroSection onBuyClick={scrollToBuy} /> {/* pass the scroll handler here */}
 
       <BackgroundImageWrapper>
         <div id="about">
@@ -45,7 +45,7 @@ const Home = () => {
         <div id="staking">
           <StakingSection />
         </div>
-        <div id="buy">
+        <div id="buy" ref={buyRef}> {/* attach the ref here */}
           <NetworkSection />
         </div>
         <GlanceSection />

@@ -14,7 +14,7 @@ const ResponsiveAppBar: React.FC = () => {
 
     let navigate = useNavigate();
   
-      const navigatetoNavBar = (hrefLink) => {
+      const navigatetoNavBar = (hrefLink:string) => {
           navigate(hrefLink);
         };
 
