@@ -1,3 +1,98 @@
+// import React, { useState, useRef, useEffect } from "react";
+// import "./SelectWithImage.css";
+// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
+// export type OptionWithImage = {
+//   chainId: number;
+//   label: string;
+//   value: string;
+//   icon: string;
+//   stakeContractAddress: string | undefined;
+//   hpoContractAddress: string | undefined;
+//   bridgeContractAddress: string | undefined;
+//   bridgeContractHandler: string | undefined;
+// };
+
+// type SelectWithImageProps = {
+//   value: string;
+//   options: OptionWithImage[];
+//   onChange: (value: OptionWithImage) => void;
+//   placeholder?: string;
+// };
+
+// export default function SelectWithImage({
+//   value,
+//   options,
+//   onChange,
+//   placeholder = "Select...",
+// }: SelectWithImageProps) {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const selected = Array.isArray(options)
+//     ? options.find((opt) => opt.value === value)
+//     : undefined;
+//   const wrapperRef = useRef<HTMLDivElement>(null);
+
+//   useEffect(() => {
+//     const handleClickOutside = (e: MouseEvent) => {
+//       if (
+//         wrapperRef.current &&
+//         !wrapperRef.current.contains(e.target as Node)
+//       ) {
+//         setIsOpen(false);
+//       }
+//     };
+//     document.addEventListener("mousedown", handleClickOutside);
+//     return () => document.removeEventListener("mousedown", handleClickOutside);
+//   }, []);
+
+//   return (
+//     <div className="custom-select-wrapper" ref={wrapperRef}>
+//       <div className="custom-select-trigger" onClick={() => setIsOpen(!isOpen)}>
+//         {selected ? (
+//           <div style={{ display: "flex", alignItems: "center" }}>
+//             {selected.icon && (
+//               <img
+//                 src={selected.icon}
+//                 alt={selected.label}
+//                 className="select-icon"
+//               />
+//             )}
+//             <span>{selected.label}</span>
+//           </div>
+//         ) : (
+//           <span className="placeholder">{placeholder}</span>
+//         )}
+//         <ExpandMoreIcon />
+//       </div>
+//       {isOpen && (
+//         <div className="custom-options">
+//           {options.map((option) => (
+//             <div
+//               key={option.value}
+//               className="custom-option"
+//               onClick={() => {
+//                 onChange(option);
+//                 setIsOpen(false);
+//               }}
+//             >
+//               {option.icon && (
+//                 <img
+//                   src={option.icon}
+//                   alt={option.label}
+//                   className="select-icon"
+//                 />
+//               )}
+//               <span>{option.label}</span>
+//             </div>
+//           ))}
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+
+
 import React, { useState, useRef, useEffect } from "react";
 import "./SelectWithImage.css";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -14,7 +109,7 @@ export type OptionWithImage = {
 };
 
 type SelectWithImageProps = {
-  value: string;
+  value: string | undefined;
   options: OptionWithImage[];
   onChange: (value: OptionWithImage) => void;
   placeholder?: string;
@@ -27,11 +122,20 @@ export default function SelectWithImage({
   placeholder = "Select...",
 }: SelectWithImageProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const selected = Array.isArray(options)
-    ? options.find((opt) => opt.value === value)
-    : undefined;
   const wrapperRef = useRef<HTMLDivElement>(null);
 
+const selected = Array.isArray(options)
+    ? options.find((opt) => opt.value === value)
+    : undefined;
+  // ✅ Always set default if no value is selected and options are available
+  useEffect(() => {
+    if (!selected && options.length > 0) {
+      onChange(options[0]);
+    }
+    // Only runs when value or options change
+  }, [value, options]);
+
+  // ✅ Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (

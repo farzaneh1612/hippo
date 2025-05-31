@@ -147,10 +147,12 @@ export default function StakeForm() {
         <label className="form-label">Plan</label>
         {isConnected ? (
           <SelectWithImage
-            value={selectedPlan?.value}
+            value={selectedPlan?.value || ""}
             options={plans}
             onChange={(option) => setSelectedPlan(option)}
+            placeholder='select plan'
           />
+          
         ) : (
           <div style={{ display: "flex", gap: "4px" }}>
             <img
