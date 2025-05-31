@@ -91,6 +91,7 @@ flex-shrink: 0;
     gap: 4px;
     border-radius: 100px;
     background: var(--HPOtoken-500, #30959C);
+    cursor: pointer;
 }
 
 .buttonText{
@@ -174,6 +175,7 @@ flex-shrink: 0;
     border-radius: 8px;
     background: var(--HPOtoken-600, #267B83);
     border: none;
+    text-decoration: none; 
 }
 
 .buttonDownload.active{
