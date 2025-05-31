@@ -28,8 +28,8 @@ const NetworkSection: React.FC = () => {
       <h2>Buy &amp; Trade HPO on Leading Crypto Exchanges</h2>
       <p>
         HPO is available on both centralized and decentralized exchanges,
-        making it easy to buy, trade, and stake your tokens seamlessly. Whether
-        you prefer DEXs for decentralized trading or CEXs for convenience and
+        making it easy to buy, trade, and <br /> stake your tokens seamlessly. Whether
+        you prefer DEXs for decentralized trading or CEXs for <br /> convenience and
         liquidity, HPO is accessible across multiple platforms.
       </p>
 

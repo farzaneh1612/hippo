@@ -16,7 +16,7 @@ const StakingSection: React.FC = () => {
     <section className="staking-section">
       <h2 className='staking-section-h2'>Stake HPO & Earn Up to 100% APY</h2>
       <span className="staking-description">
-        Make your HPO tokens work for you with staking rewards of up to 100% APY. HPO token offers a secure, flexible, and high–yield staking program, allowing you to earn passive income effortlessly while keeping full control over your assets
+        Make your HPO tokens work for you with staking rewards of up to 100% APY. HPO token offers <br /> a secure, flexible, and high–yield staking program, allowing you to earn passive income effortlessly<br />  while keeping full control over your assets
       </span>
       <p className="staking-subtitle">Choose the staking plan that fits your strategy:</p>
       {isMobile ?<>
@@ -59,7 +59,7 @@ const StakingSection: React.FC = () => {
       </div>
 }
       <span className="staking-note">
-        With multi–chain support on Ethereum and BSC, HPO staking provides a profitable and seamless way to grow your wealth. Simply choose your preferred plan, stake your HPO, and start earning passive rewards today.
+        With multi–chain support on Ethereum and BSC, HPO staking provides a profitable and seamless way <br /> to grow your wealth. Simply choose your preferred plan, stake your HPO, and start earning passive rewards today.
       </span>
 
       <h3 className="staking-call">Stake now and unlock the full potential of your HPO tokens!</h3>
