@@ -27,9 +27,9 @@ export default function DashboardDatatable() {
 
   async function getStakList() {
     if (!isConnected) {
-              toast.error("Wallet not connected");
-              return;
-            }
+      toast.error("Wallet not connected");
+      return;
+    }
     if (!isConnected || !network?.stakeContractAddress || !network?.stakeContractAbi) return;
 
     try {
@@ -46,22 +46,24 @@ export default function DashboardDatatable() {
 
       const formattedStakeList = stakeList.map((stake, index) => {
         const amount = parseInt(stake[0], 10) / 1e18;
-        const releaseDate = new Date(parseInt(stake[1])).toLocaleString('en-GB');
-        const planDays = parseInt(stake[2][0]) / 3600 / 24;
-        const ratio = parseInt(stake[2][1]) / 100;
+        const releaseDate = new Date(parseInt(stake[1]) * 1000).toLocaleString('en-GB');
+        const planDays = network.chainId === 1 ? 30 : parseInt(stake[2][0]) / 3600 / 24;
+        const ratio = network.chainId === 1 ? 6 : parseInt(stake[2][1]) / 100;
         const apy = `${ratio}%`;
-        const status = Date.now() >= parseInt(stake[1]) ? "Done" : "In Progress";
+        const status = Date.now() >= parseInt(stake[1]) * 1000 ? "Done" : "In Progress";
 
-        return {
-          id: index + 1,
-          asset: "HPO",
-          status,
-          amount,
-          plan: `${planDays} Days`,
-          apy,
-          releaseDate: releaseDate.replace(',', ''),
-        };
-      });
+        if (!(Date.now() >= parseInt(stake[1]) * 1000)) {
+          return {
+            id: index + 1,
+            asset: "HPO",
+            status,
+            amount,
+            plan: `${planDays} Days`,
+            apy,
+            releaseDate: releaseDate.replace(',', ''),
+          };
+        }
+      }).filter(Boolean);
 
       setData(formattedStakeList);
     } catch (error) {
@@ -92,19 +94,19 @@ export default function DashboardDatatable() {
             <div className="emptyTex" style={{ textAlign: 'center', padding: '20px' }}>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
                 <span className="emptyText">To view information,<br /> you must first connect to your wallet.</span>
-                <ConnectButton backgrounColor={'#fff'} colorText={' #267B83'}/>
+                <ConnectButton backgrounColor={'#fff'} colorText={' #267B83'} />
               </div>
             </div>
-      ) : paginatedData.length === 0 ? (
-    <div className="emptyTex" style={{ textAlign: 'center', padding: '20px' }}>
-      You have no stake data yet.
-    </div>
-    )  : (
-    paginatedData.map(row => (
-      <StakeCard key={row.id} data={row} isConnected={isConnected} />
-    ))
-  )
-)  : ( 
+          ) : paginatedData.length === 0 ? (
+            <div className="emptyTex" style={{ textAlign: 'center', padding: '20px' }}>
+              You have no stake data yet.
+            </div>
+          ) : (
+            paginatedData.map(row => (
+              <StakeCard key={row.id} data={row} isConnected={isConnected} />
+            ))
+          )
+        ) : (
           <table className="status-table">
             <thead>
               <tr>
@@ -118,38 +120,38 @@ export default function DashboardDatatable() {
               </tr>
             </thead>
             <tbody>
-  {!isConnected ? (
-    <tr>
-      <td colSpan="7" className="emptyTex" style={{ textAlign: 'center', padding: '20px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-          <span className="emptyText">To view information,<br /> you must first connect to your wallet.</span>
-          <ConnectButton />
-        </div>
-      </td>
-    </tr>
-  ) : paginatedData.length === 0 ? (
-    <tr>
-      <td colSpan="7" className="emptyTex" style={{ textAlign: 'center', padding: '20px' }}>
-        You have no stake data yet.
-      </td>
-    </tr>
-  ) : (
-    paginatedData.map(row => (
-      <tr key={row.id}>
-        <td className="typograohytd">{row.id}</td>
-        <td className="typograohytd">{row.asset}</td>
-        <td className="typograohytd">
-          <span className={`status-badge ${row.status === 'Done' ? 'done' : 'in-progress'}`}>
-            <span className="dot" /> {row.status}
-          </span>
-        </td>
-        <td className="typograohytd">{row.amount}</td>
-        <td className="typograohytd">{row.plan}</td>
-        <td className="typograohytd">{row.apy}</td>
-        <td className="typograohytd">{row.releaseDate}</td>
-      </tr>
-    ))
-  )}
+              {!isConnected ? (
+                <tr>
+                  <td colSpan="7" className="emptyTex" style={{ textAlign: 'center', padding: '20px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+                      <span className="emptyText">To view information,<br /> you must first connect to your wallet.</span>
+                      <ConnectButton />
+                    </div>
+                  </td>
+                </tr>
+              ) : paginatedData.length === 0 ? (
+                <tr>
+                  <td colSpan="7" className="emptyTex" style={{ textAlign: 'center', padding: '20px' }}>
+                    You have no stake data yet.
+                  </td>
+                </tr>
+              ) : (
+                paginatedData.map(row => (
+                  <tr key={row.id}>
+                    <td className="typograohytd">{row.id}</td>
+                    <td className="typograohytd">{row.asset}</td>
+                    <td className="typograohytd">
+                      <span className={`status-badge ${row.status === 'Done' ? 'done' : 'in-progress'}`}>
+                        <span className="dot" /> {row.status}
+                      </span>
+                    </td>
+                    <td className="typograohytd">{row.amount}</td>
+                    <td className="typograohytd">{row.plan}</td>
+                    <td className="typograohytd">{row.apy}</td>
+                    <td className="typograohytd">{row.releaseDate}</td>
+                  </tr>
+                ))
+              )}
             </tbody>
 
           </table>
@@ -157,24 +159,24 @@ export default function DashboardDatatable() {
 
         {/* Pagination */}
         {isConnected ?
-        <div className="pagination">
-          <button onClick={() => handlePageClick(currentPage - 1)}><KeyboardArrowLeftIcon /></button>
-          {pages.map((p, index) => (
-            <React.Fragment key={p}>
-              {(p === 1 || p === pageCount || Math.abs(p - currentPage) <= 1) ? (
-                <button
-                  onClick={() => handlePageClick(p)}
-                  className={p === currentPage ? 'active' : ''}
-                >
-                  {p}
-                </button>
-              ) : (index === 1 || index === pages.length - 2) && (
-                <span className="dots">...</span>
-              )}
-            </React.Fragment>
-          ))}
-          <button onClick={() => handlePageClick(currentPage + 1)}><KeyboardArrowRightIcon /></button>
-        </div>:null}
+          <div className="pagination">
+            <button onClick={() => handlePageClick(currentPage - 1)}><KeyboardArrowLeftIcon /></button>
+            {pages.map((p, index) => (
+              <React.Fragment key={p}>
+                {(p === 1 || p === pageCount || Math.abs(p - currentPage) <= 1) ? (
+                  <button
+                    onClick={() => handlePageClick(p)}
+                    className={p === currentPage ? 'active' : ''}
+                  >
+                    {p}
+                  </button>
+                ) : (index === 1 || index === pages.length - 2) && (
+                  <span className="dots">...</span>
+                )}
+              </React.Fragment>
+            ))}
+            <button onClick={() => handlePageClick(currentPage + 1)}><KeyboardArrowRightIcon /></button>
+          </div> : null}
       </div>
       <div style={{ height: '80px' }} />
     </>

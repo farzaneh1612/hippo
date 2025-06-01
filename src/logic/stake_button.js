@@ -49,16 +49,30 @@ export function StakeButton({ indexPlan, amountProps, disabled }) {
           amount
         );
         if (approve) {
-          const tx = await stakeContract.stake(amount, indexPlan);
-          await tx.wait();
-          toast.success("Staking successful!");
-          return;
+          if (selectedNetwork.chainId === 1) {
+            const tx = await stakeContract.stake(amount);
+            await tx.wait();
+            toast.success("Staking successful!");
+            return;
+          } else if (selectedNetwork.chainId === 56) {
+            const tx = await stakeContract.stake(amount, indexPlan);
+            await tx.wait();
+            toast.success("Staking successful!");
+            return;
+          }
         }
       }
+      if (selectedNetwork.chainId === 1) {
+        const tx = await stakeContract.stake(amount);
+        await tx.wait();
+        toast.success("Staking successful!");
+      } else if (selectedNetwork.chainId === 56) {
+        const tx = await stakeContract.stake(amount, indexPlan);
+        await tx.wait();
+        toast.success("Staking successful!");
+      }
 
-      const tx = await stakeContract.stake(amount, indexPlan);
-      await tx.wait();
-      toast.success("Staking successful!");
+
     } catch (error) {
       console.error("Staking failed:", error);
       toast.error(error.reason || "Staking failed.");
