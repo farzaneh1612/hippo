@@ -19,6 +19,7 @@ export default function BridgeForm() {
   const [toNetwork, setToNetwork] = useState(networkOptions[1]);
   const [toAnotherAddress, setToAnotherAddress] = useState(false);
   const { isConnected } = useAppKitAccount();
+  const [bridgeAction, setBridgeAction] = useState<null | (() => void)>(null);
 
   const formik = useFormik({
     enableReinitialize: true,
@@ -57,10 +58,13 @@ export default function BridgeForm() {
         ),
     }),
     context: { toAnotherAddress },
-    onSubmit: () => {},
+    onSubmit: () => {
+      if (bridgeAction) {
+        bridgeAction();
+      }
+    },
   } as any);
 
-  // 🔐 DISABLE button logic
   const isBridgeDisabled =
     !formik.isValid ||
     !formik.dirty ||
@@ -69,7 +73,7 @@ export default function BridgeForm() {
 
   return (
     <>
-      <div className="stake-form">
+      <form onSubmit={formik.handleSubmit} className="stake-form">
         {/* From Network */}
         <label className="form-label">From Network</label>
         <SelectWithImage
@@ -189,7 +193,7 @@ export default function BridgeForm() {
           </div>
         </div>
 
-        {/* Bridge Button */}
+        {/* Bridge Button or Connect Button */}
         {isConnected ? (
           <BridgeButton
             destination={toNetwork}
@@ -197,12 +201,13 @@ export default function BridgeForm() {
             addressProp={formik.values.WalletAddress}
             disabledProp={isBridgeDisabled}
             formik={formik}
-            setAction={() => {}}
+            setAction={setBridgeAction}
           />
         ) : (
           <ConnectButton />
         )}
-      </div>
+      </form>
+
       <div style={{ height: "80px" }} />
     </>
   );

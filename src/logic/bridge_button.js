@@ -42,7 +42,7 @@ export function BridgeButton({
   addressProp = null,
   disabledProp,
   setAction,
-  formik, // ✅ receive formik instance
+  formik,
 }) {
   const { address, isConnected } = useAppKitAccount();
   const { walletProvider } = useAppKitProvider("eip155");
@@ -127,19 +127,19 @@ export function BridgeButton({
       setLoading(false);
     }
   }
-
-  useEffect(() => {
-    if (setAction) setAction(() => stakeAction);
-  }, [setAction]);
+useEffect(() => {
+  setAction(() => stakeAction);
+}, [amountProps, addressProp, destination]);
 
   return (
-    <button
-      type="button"
-      onClick={stakeAction}
-      disabled={!disabledProp || loading}
-      className="stake-button"
-      style={{ backgroundColor: !disabledProp ? "#30959c" : "gray" }}
-    >
+ <button
+  type="button"
+  onClick={stakeAction}
+  disabled={disabledProp || loading}
+  className="stake-button"
+  style={{ backgroundColor: disabledProp ? "gray" : "#30959c" }}
+>
+
       {loading ? (
         <div className="spinner-wrapper">
           <span className="spinner"></span> Bridging...
