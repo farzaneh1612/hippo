@@ -1,35 +1,37 @@
 import React from 'react';
 import './Menu.css';
-import { useNavigate } from "react-router";
 
+interface MenuProps {
+  onClose: () => void;
+}
 const menuItems = [
-  {title:"About Hippo", href:'/'},
-  {title:"Staking", href:'/stake'},
-  {title:"Buy", href:'/'},
+  { title: "About Hippo", href: "#about" },
+  { title: "Staking", href: "#staking" },
+  { title: "Buy", href: "#buy" },
 ];
 
-
-
-
-const Menu = () => {
-
-    let navigate = useNavigate();
-
-    const navigatetoNavBar = (hrefLink:string) => {
-    navigate(hrefLink);
-  };
+const Menu: React.FC<MenuProps> = ({ onClose }) => {
+ const scrollToSection = (href: string) => {
+  onClose(); 
+  setTimeout(() => {
+    const id = href.replace('#', '');
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, 300);
+};
 
   return (
     <div className="menu-container">
       {menuItems.map((item, index) => (
         <div className="menu-item" key={index}>
-            <button
-                key={index}
-                onClick={()=>navigatetoNavBar(item.href)}
-                className='button'
-              >
-          <span>{item.title}</span>
-          <span className="arrow">›</span>
+          <button
+            onClick={() => scrollToSection(item.href)}
+            className="button"
+          >
+            <span>{item.title}</span>
+            <span className="arrow">›</span>
           </button>
         </div>
       ))}

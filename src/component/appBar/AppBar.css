@@ -253,7 +253,7 @@ flex-shrink: 0;
     }
   
     .buttonDownload {
-      width: 100%;
+      max-width: 140px;
       height: 44px;
       font-size: 14px;
     }

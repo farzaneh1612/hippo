@@ -1,5 +1,5 @@
-import React from 'react'
-import image from '../../static/image/fotter.png'
+import React from "react";
+import image from "../../static/image/fotter.png";
 import "./AppBar.css";
 
 const socialsLogo = [
@@ -82,11 +82,16 @@ export default function NavBar() {
               Download Hippo Wallet
             </span>
           </a>
-          <button className="buttonDownload">
+          <a
+            href="https://cdn.hpotoken.io/HpoWhitepaper.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="buttonDownload"
+          >
             <span className="buttonDownloadTypography">
               Download Whitepaper
             </span>
-          </button>
+          </a>
         </div>
         <p className="footer-copy">© 2025 HPOtoken. All rights reserved</p>
       </div>
