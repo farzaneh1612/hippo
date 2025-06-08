@@ -13,7 +13,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: "How does HPO Token work?",
-    answer: "HPO Token powers the Hippo Wallet ecosystem, driving the platform’s products and services. It offers a staking feature that allows users to earn rewards and passive income by staking their tokens on the Hippo Wallet app.",
+    answer: "HPO Token powers the Hippo Wallet ecosystem, driving the platform's products and services. It offers a staking feature that allows users to earn rewards and passive income by staking their tokens on the Hippo Wallet app as well as the Hippo staking platform itself.",
   },
   {
     question: "What can I do with HPO Token?",
@@ -45,7 +45,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: "Is HPO Token secure?",
-    answer: "Yes, HPO Token is backed by a strong technical team and employs advanced security measures. It benefits from ongoing updates and enhancements, ensuring the safety and reliability of the token for its users.",
+    answer: "Yes, HPO Token is backed by a strong technical team who has developed the decentralized and non-custodial Hippo Wallet. The HPO token goes hand in hand with Hippo Wallet both benefit from ongoing updates and enhancements, ensuring the safety and reliability of the token for its users.",
   },
 ];
 

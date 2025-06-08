@@ -14,6 +14,7 @@
   width: 56px;
   height: 56px;
   padding-right: 24px;
+  align-self: flex-start;
 }
 
 .glance-header h2 {
@@ -39,8 +40,8 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   text-align: center;
-  justify-items: center; 
-  align-items: center; 
+  justify-items: center;
+  align-items: center;
 }
 
 .glance-row > div {
@@ -49,7 +50,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 .glance-row.header div {
   font-weight: 500;

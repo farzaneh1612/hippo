@@ -1,211 +1,215 @@
 /* src/styles/assetssSection.css */
 .assetss {
-    color: white;
-    display: flex;
-    padding: 128px 64px 88px 64px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
+  color: white;
+  display: flex;
+  padding: 128px 64px 88px 64px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
 
-  .assets-content{
-    display: flex;
+.assets-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.assets-h1 {
+  color: var(--Gray-100, #e6e6e6);
+
+  /* En/H2 */
+  font-family: "Abar VF";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 850;
+  line-height: 50px; /* 125% */
+}
+
+.assets-paragraph {
+  color: var(--Gray-100, #e6e6e6);
+  /* En/Body - xl */
+  font-family: "Abar VF";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 140% */
+}
+
+.assetss-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.assets-card {
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+  .assetss-list {
+    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+  }
+}
 
+.assets-image {
+  width: 477px;
+  height: 501px;
+  flex-shrink: 0;
+}
+
+.check-text {
+  color: var(--Gray-100, #e6e6e6);
+  /* En/Body - md - thick */
+  font-family: "Abar VF";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 550;
+  line-height: normal;
+  margin-left: 6.5px;
+}
+
+.assets-benefits {
+  display: flex;
+  padding-bottom: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.assets-buttons {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.assets-button-primary {
+  display: flex;
+  height: 56px;
+  min-width: 260px;
+  padding: 8px 24px 2px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1.5px solid var(--HPOtoken-500, #30959c);
+  background: var(--Gray-5, #f5f5f5);
+  text-decoration: none;
+}
+
+.assets-button-secondary {
+  display: flex;
+  height: 56px;
+  min-width: 260px;
+  padding: 6px 32px 4px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid var(--Gray-100, #e6e6e6);
+  background: transparent;
+  text-decoration: none;
+}
+
+.assets-button-primary-title {
+  color: var(--HPOtoken-600, #267b83);
+  font-family: "Abar VF";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.assets-button-secondary-title {
+  color: var(--Gray-1, #fff);
+  font-family: "Abar VF";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.assets-button-primary:hover {
+  background-color: transparent;
+    color: #00d3a9;
+}
+
+.assets-button-secondary:hover {
+    background-color: #2c8d91;
+  }
+@media (max-width: 768px) {
+  .assets-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
 
+  .assetss {
+    padding: 64px 24px 64px 24px;
+    gap: 16px;
+  }
 
-  .assets-h1{
-    color: var(--Gray-100, #E6E6E6);
-
-    /* En/H2 */
+  .assets-h1 {
+    color: var(--Primary-50, #f4f9f7);
+    text-align: center;
     font-family: "Abar VF";
-    font-size: 40px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 850;
-    line-height: 50px; /* 125% */
+    line-height: 42px; /* 140% */
   }
 
-  .assets-paragraph{
-    color: var(--Gray-100, #E6E6E6);
-/* En/Body - xl */
-    font-family: "Abar VF";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 28px; /* 140% */
-  }
-
-  .assetss-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 900px;
-    margin: auto;
-  }
-  
-  .assets-card {
-    background: #1c1c1c;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  @media (min-width: 768px) {
-    .assetss-list {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  }
-
-  .assets-image{
-    width: 477px;
-    height: 501px;
-    flex-shrink: 0;
-  }
-  
-  .check-text {
-    color: var(--Gray-100, #E6E6E6);
-/* En/Body - md - thick */
+  .assets-paragraph {
+    color: var(--Gray-100, #e6e6e6);
+    text-align: center;
+    /* En/Body - md - thick */
     font-family: "Abar VF";
     font-size: 16px;
     font-style: normal;
     font-weight: 550;
     line-height: normal;
-    margin-left: 6.5px;
   }
 
-  .assets-benefits{
-    display: flex;
-    padding-bottom: 16px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    margin: 24px 0;
-  }
-
-  .assets-buttons{
-    display: flex;
-    align-items: flex-start;
+  .assetss-list {
     gap: 16px;
+    padding: 0;
   }
 
-  .assets-button-primary{
-    display: flex;
-    height: 56px;
-    min-width: 260px;
-    padding: 8px 24px 2px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 100px;
-    border: 1.5px solid var(--HPOtoken-500, #30959C);
-    background: var(--Gray-5, #F5F5F5);
+  .assets-image {
+    width: 100%;
+    height: auto;
   }
 
-  .assets-button-secondary{
-    display: flex;
-    height: 56px;
-    min-width: 260px;
-    padding: 6px 32px 4px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 100px;
-    border: 1px solid var(--Gray-100, #E6E6E6);
-    background: transparent;
+  .check-text {
+    font-size: 14px;
+    margin-left: 4px;
   }
 
-  .assets-button-primary-title{
-    color: var(--HPOtoken-600, #267B83);
-    font-family: "Abar VF";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  .assets-benefits {
+    gap: 6px;
+    margin: 16px 0;
   }
 
-  .assets-button-secondary-title{
-    color: var(--Gray-1, #FFF);
-    font-family: "Abar VF";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+  .assets-buttons {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  @media (max-width: 768px) {
-    .assets-content {
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-  
-      .assetss {
-        padding: 64px 24px 64px 24px;
-        gap: 16px;
-      }
-  
-    
-      .assets-h1 {
-        color: var(--Primary-50, #F4F9F7);
-        text-align: center;
-        font-family: "Abar VF";
-        font-size: 30px;
-        font-style: normal;
-        font-weight: 850;
-        line-height: 42px; /* 140% */
-      }
-    
-      .assets-paragraph {
-        color: var(--Gray-100, #E6E6E6);
-        text-align: center;
-        /* En/Body - md - thick */
-        font-family: "Abar VF";
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 550;
-        line-height: normal;
-      }
-    
-      .assetss-list {
-        gap: 16px;
-        padding: 0;
-      }
-    
-      .assets-image {
-        width: 100%;
-        height: auto;
-      }
-    
-      .check-text {
-        font-size: 14px;
-        margin-left: 4px;
-      }
-    
-      .assets-benefits {
-        gap: 6px;
-        margin: 16px 0;
-      }
-    
-      .assets-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-    
-      .assets-button-primary,
-      .assets-button-secondary {
-        width: 100%;
-        min-width: unset;
-        padding: 12px;
-        height: auto;
-      }
-    
-      .assets-button-primary-title,
-      .assets-button-secondary-title {
-        font-size: 18px;
-        text-align: center;
-      }
-    }
-    
-  
+  .assets-button-primary,
+  .assets-button-secondary {
+    min-width: unset;
+    padding: 12px;
+    height: auto;
+  }
+
+  .assets-button-primary-title,
+  .assets-button-secondary-title {
+    font-size: 18px;
+    text-align: center;
+  }
+}

@@ -160,7 +160,7 @@
   
     .staking-button {
       height: 56px;
-      min-width: 350px;
+      min-width: 100%;
       padding: 8px 24px 2px 24px;
       justify-content: center;
       align-items: center;

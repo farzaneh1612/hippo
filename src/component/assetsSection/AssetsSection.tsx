@@ -35,8 +35,14 @@ const AssetsSection = () => {
         </ul>
       
         <div className="assets-buttons">
-          <button className="assets-button-primary"> <span className='assets-button-primary-title'>Download HippoWallet</span></button>
-          <button className="assets-button-secondary"><span className='assets-button-secondary-title'>Download Whitepaper</span></button>
+         <a
+            href="https://hippowallet.io/"
+            target="_blank"
+            rel="noopener noreferrer" className="assets-button-primary"> <span className='assets-button-primary-title'>Download HippoWallet</span></a>
+           <a
+            href="https://cdn.hpotoken.io/HpoWhitepaper.pdf"
+            target="_blank"
+            rel="noopener noreferrer" className="assets-button-secondary"><span className='assets-button-secondary-title'>Download Whitepaper</span></a>
         </div>
       </div>
       {!isMobile &&

@@ -14,12 +14,26 @@ type GlanceData = {
 const GlanceSection: React.FC = () => {
   const [data, setData] = useState<GlanceData | null>(null);
 
-    const fetchData = () => {
+  const fetchData = () => {
     axios
       .get<GlanceData>("https://api.hippowallet.io/v1/HPO/info")
       .then((res) => setData(res.data))
       .catch((err) => console.error("Failed to fetch HPO data:", err));
   };
+
+  function formatNumber(num) {
+    if (num === null || num === undefined) return "N/A";
+
+    if (Math.abs(num) >= 1.0e9) {
+      return (num / 1.0e9).toFixed(1).replace(/\.0$/, "") + "B";
+    } else if (Math.abs(num) >= 1.0e6) {
+      return (num / 1.0e6).toFixed(1).replace(/\.0$/, "") + "M";
+    } else if (Math.abs(num) >= 1.0e3) {
+      return (num / 1.0e3).toFixed(1).replace(/\.0$/, "") + "K";
+    } else {
+      return num.toLocaleString(); // fallback for smaller numbers
+    }
+  }
 
   useEffect(() => {
     fetchData(); // Initial fetch
@@ -44,11 +58,16 @@ const GlanceSection: React.FC = () => {
         <div className="price-card">
           <div className="price-header">
             <div className="icon-circle">
-              <img src={require("../../static/image/logo/Logo.png")} alt="HPO Icon" />
+              <img
+                src={require("../../static/image/logo/Logo.png")}
+                alt="HPO Icon"
+              />
             </div>
             <div className="current-price">
               <p className="label">Current Price</p>
-              <p className="value">USDT {data ? data.price.toFixed(4) : "Loading..."}</p>
+              <p className="value">
+                USDT {data ? data.price.toFixed(4) : "Loading..."}
+              </p>
             </div>
           </div>
 
@@ -57,22 +76,33 @@ const GlanceSection: React.FC = () => {
           <div className="metrics">
             <div className="metric">
               <p className="label">Total Supply</p>
-              <p className="value">{data ? data.totalSupply.toLocaleString() : "Loading..."}</p>
+              <p className="value">
+                {data ? formatNumber(data.totalSupply) : "Loading..."}
+              </p>
             </div>
             <div className="metric">
               <p className="label">Circulating Supply</p>
-              <p className="value">{data ? data.circulatingSupply.toLocaleString() : "Loading..."}</p>
+              <p className="value">
+                {data ? formatNumber(data.circulatingSupply) : "Loading..."}
+              </p>
             </div>
             <div className="metric">
               <p className="label">Max Supply</p>
-              <p className="value">{data ? data.maxSupply.toLocaleString() : "Loading..."}</p>
+              <p className="value">
+                {data ? formatNumber(data.maxSupply) : "Loading..."}
+              </p>
             </div>
           </div>
         </div>
       ) : (
         <div className="glance-table">
           <div className="glance-row header">
-            {["Current Price", "Total Supply", "Circulating Supply", "Max Supply"].map((label) => (
+            {[
+              "Current Price",
+              "Total Supply",
+              "Circulating Supply",
+              "Max Supply",
+            ].map((label) => (
               <div key={label}>
                 <span className="glance-header-title">{label}</span>
               </div>
@@ -81,16 +111,24 @@ const GlanceSection: React.FC = () => {
           <div className="glance-divider" />
           <div className="glance-row data">
             <div>
-              <div className="primary">USDT {data ? data.price.toFixed(4) : "Loading..."}</div>
+              <div className="primary">
+                USDT {data ? data.price.toFixed(4) : "Loading..."}
+              </div>
             </div>
             <div>
-              <div className="primary">{data ? data.totalSupply.toLocaleString() : "Loading..."}</div>
+              <div className="primary">
+                {data ? formatNumber(data.totalSupply) : "Loading..."}
+              </div>
             </div>
             <div>
-              <div className="primary">{data ? data.circulatingSupply.toLocaleString() : "Loading..."}</div>
+              <div className="primary">
+                {data ? formatNumber(data.circulatingSupply) : "Loading..."}
+              </div>
             </div>
             <div>
-              <div className="primary">{data ? data.maxSupply.toLocaleString() : "Loading..."}</div>
+              <div className="primary">
+                {data ? formatNumber(data.maxSupply) : "Loading..."}
+              </div>
             </div>
           </div>
         </div>
@@ -106,9 +144,17 @@ const GlanceSection: React.FC = () => {
             rel="noopener noreferrer"
           >
             <div style={{ display: "flex" }}>
-              <img src={require("../../static/image/logo/BscScan.png")} className="logo-img" alt="BSC Icon" />
+              <img
+                src={require("../../static/image/logo/BscScan.png")}
+                className="logo-img"
+                alt="BSC Icon"
+              />
               {isMobile ? (
-                <img src={require("../../static/image/Arrow.png")} className="glance-arrow-icon" alt="arrow" />
+                <img
+                  src={require("../../static/image/Arrow.png")}
+                  className="glance-arrow-icon"
+                  alt="arrow"
+                />
               ) : (
                 <span className="glance-section-logo-title">BSC Scan</span>
               )}
@@ -116,7 +162,11 @@ const GlanceSection: React.FC = () => {
             {isMobile ? (
               <span className="glance-section-logo-title">BSC Scan</span>
             ) : (
-              <img src={require("../../static/image/Arrow.png")} className="glance-arrow-icon" alt="arrow" />
+              <img
+                src={require("../../static/image/Arrow.png")}
+                className="glance-arrow-icon"
+                alt="arrow"
+              />
             )}
           </a>
 
@@ -127,9 +177,17 @@ const GlanceSection: React.FC = () => {
             rel="noopener noreferrer"
           >
             <div style={{ display: "flex" }}>
-              <img src={require("../../static/image/logo/Ethereum.png")} className="logo-img" alt="Ether Icon" />
+              <img
+                src={require("../../static/image/logo/Ethereum.png")}
+                className="logo-img"
+                alt="Ether Icon"
+              />
               {isMobile ? (
-                <img src={require("../../static/image/Arrow.png")} className="glance-arrow-icon" alt="arrow" />
+                <img
+                  src={require("../../static/image/Arrow.png")}
+                  className="glance-arrow-icon"
+                  alt="arrow"
+                />
               ) : (
                 <span className="glance-section-logo-title">Ether Scan</span>
               )}
@@ -137,7 +195,11 @@ const GlanceSection: React.FC = () => {
             {isMobile ? (
               <span className="glance-section-logo-title">Ether Scan</span>
             ) : (
-              <img src={require("../../static/image/Arrow.png")} className="glance-arrow-icon" alt="arrow" />
+              <img
+                src={require("../../static/image/Arrow.png")}
+                className="glance-arrow-icon"
+                alt="arrow"
+              />
             )}
           </a>
         </div>
