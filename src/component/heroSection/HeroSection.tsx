@@ -5,6 +5,7 @@ import './HeroSection.css';
 import { useNavigate } from "react-router";
 
 const { innerHeight: height } = window;
+const isMobile = window.innerWidth <= 768;
 
 interface HeroSectionProps {
   onBuyClick?: () => void;
@@ -23,8 +24,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onBuyClick }) => {
       <div className="hero-content">
         <h1 className="hero-title">Hodl, Profit & Own Your Future</h1>
         <p className="hero-paragraph">
-          HPO is the utility token of Hippo Wallet, designed for security,<br />
-          passive income, and financial liberty. Buy and stake HPO to grow your wealth while<br />
+          HPO is the utility token of Hippo Wallet, designed for security,{!isMobile &&<br />}
+          passive income, and financial liberty. Buy and stake HPO to grow your wealth while{!isMobile &&<br />}
           exploring new opportunities across crypto and Web3.
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 16 }}>

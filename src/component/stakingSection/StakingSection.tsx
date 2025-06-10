@@ -24,9 +24,9 @@ const StakingSection: React.FC = () => {
       <h2 className="staking-section-h2">Stake HPO & Earn Up to 100% APY</h2>
       <span className="staking-description">
         Make your HPO tokens work for you with staking rewards of up to 100%
-        APY. HPO token offers <br /> a secure, flexible, and high–yield staking
+        APY. HPO token offers {!isMobile &&<br />}a secure, flexible, and high–yield staking
         program, allowing you to earn passive income effortlessly
-        <br /> while keeping full control over your assets
+        {!isMobile &&<br />} while keeping full control over your assets
       </span>
       <p className="staking-subtitle">
         Choose the staking plan that fits your strategy:
