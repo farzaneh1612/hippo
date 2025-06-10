@@ -39,7 +39,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: 28px; /* 140% */
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+    margin-top: 40px;
   }
   
   .staking-table {
@@ -202,6 +203,11 @@
       background: var(--HPOtoken-600, #267B83);
     }
   
+    .staking-subtitle {
+      margin-bottom: 12px;
+    margin-top: 32px;
+    }
+
     .staking-title-row {
       font-size: 16px;
       width: 100%;
