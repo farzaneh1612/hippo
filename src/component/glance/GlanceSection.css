@@ -179,7 +179,7 @@ logo-img {
 .price-card {
   background-color: #277b84;
   border-radius: 12px;
-  padding: 16px;
+  padding: 16px 16px 0 16px;
 }
 
 .price-header {
@@ -230,8 +230,8 @@ hr {
 .metrics {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  padding: 24px;
+  gap: 5px;
+  padding: 5px;
 }
 
 .metric .label {
